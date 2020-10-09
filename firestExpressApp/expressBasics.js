@@ -11,6 +11,17 @@ app.get("/", function(req,res){
 
 app.get("/speak/:animal", function(req,res){
     var newAnimal = req.params.animal
+    var sounds = {
+        pig: "Oink",
+        cow: "moo",
+        dog: "woof woof",
+        goldfish: "....",
+        cat: "meow"
+
+    }
+
+    var sound = sounds[animal];
+
     if (newAnimal === "pig"){
         res.send("The pig says 'oink'");
     }else if (newAnimal ==="cow"){
@@ -36,6 +47,10 @@ app.get("/repeat/:word/:num", function(req,res){
 app.get("*", function(req,res){
     res.send('sorry, page not found. what are you doing with your life?')
 });
+
+app.get("/fer", function(req,res){
+    res.render("love.html");
+})
 
 app.listen(4000, function(){
     console.log('test')
